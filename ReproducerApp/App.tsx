@@ -5,9 +5,10 @@
  * @format
  */
 
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Appearance,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -61,6 +62,10 @@ function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  useLayoutEffect(() => {
+    Appearance.setColorScheme('light');
+  }, []);
 
   return (
     <SafeAreaView style={backgroundStyle}>
